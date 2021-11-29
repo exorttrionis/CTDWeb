@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+html,
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.block-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block-heading-1 {
+    float: left;
+}
+
+.text-muted {
+    color: #47494b;
+    font-size: 30px;
+}
+
+.text-heading {
+    color: #2e3031;
+}
+
+.text-bold {
+    font-weight: 700 !important;
+}
+
+.block-content {
+    padding: 24px;
+    margin: 0px 5% 0px 5%;
+}
+
+.blog-footer {
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}
+
+.text-black-footer {
+    color:black;
+}

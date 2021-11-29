@@ -1,326 +1,251 @@
-<!DOCTYPE html>
+{% extends "default.html" %}
+{% block style %}
+{% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/chat.css' %}">
+{% endblock %}
 
-<head>
-    {% load static %}
-    <title>CTD</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-    <div class="w3-top menubar" id="myNavbar">
-        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-            <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
-                href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-                <i class="fa fa-bars"></i>
-            </a>
-            <a href="#home" class="w3-bar-item w3-button w3-hover-white" style="font-size: 20px;"><b>CTD</b>
-            </a>
-            <div class="w3-right w3-hide-small" id="mySidebar">
-                <a href="#projects" class="w3-bar-item w3-button w3-margin-right w3-margin-left w3-opacity-min"
-                    style="font-size: 20px;"><b>Sản phẩm</b></a>
-                <a href="#about" class="w3-bar-item w3-button w3-margin-right w3-margin-left w3-opacity-min"
-                    style="font-size: 20px;"><b>Về chúng tôi</b> </a>
-                <a href="./Dao-tao.html" class="w3-bar-item w3-button w3-margin-right w3-margin-left w3-opacity-min"
-                    style="font-size: 20px;"><b>Đào tạo</b> </a>
-                <a href="#contact" class="w3-bar-item w3-button w3-margin-right w3-margin-left w3-opacity-min"
-                    style="font-size: 20px;"><b>Liên hệ</b> </a>
+{% block header %}
+  <div class="container-fluid p-0 align-items-center">
+            <div style="background: url({% static 'image/banner_opa2.png' %}) no-repeat center center fixed; 
+                                  -webkit-background-size: cover;
+                                  -moz-background-size: cover;
+                                    -o-background-size: cover;
+                                    background-size: cover; width: 100%; min-height: 500px;
+                                    filter: brightness(80%);">
+                              <div class="jumbotron align-items-center">
+                                <div class="container" style="padding-top: 70px;">
+                        <p class="display-5 text-heading" style="font-family: 'Roboto', sans-serif; text-align: center; 
+                            margin-top:auto; margin-bottom: auto;">
+                            <strong>Trung
+                                Tâm Sáng Tạo Và Phát
+                                Triển Công Nghệ <br>
+                                Đại học Kỹ thuật Công nghiệp Thái Nguyên</strong></p><br>
+                        <p class="lead text-heading" style="font-family: 'Roboto', sans-serif;
+                            text-align: center;
+                            margin-top:auto;
+                            margin-bottom: auto;
+                            font-size: 24px;">
+                            Tiên phong trong hệ thống IoT bao gồm phần cứng, phần mềm và hệ thống nhúng</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="navMobile" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-            <a href="#projects" class="w3-bar-item w3-button w3-margin-right w3-margin-left"
-                style="font-size: 20px;"><b>Sản phẩm</b></a>
-            <a href="#projects" class="w3-bar-item w3-button w3-margin-right w3-margin-left"
-                style="font-size: 20px;"><b>Đào tạo</b></a>
-            <a href="#about" class="w3-bar-item w3-button w3-margin-right w3-margin-left" style="font-size: 20px;"><b>Về
-                    chúng tôi</b> </a>
-            <a href="#contact" class="w3-bar-item w3-button w3-margin-right w3-margin-left"
-                style="font-size: 20px;"><b>Liên hệ</b> </a>
+{% endblock %} 
+
+{% block content %}
+{% load static %}
+    <div class="block-heading">
+        <h3 class="text-muted text-bold"> Giải pháp </h3>
+    </div>
+    <div class="block-content row row-cols-lg-3">
+        <div class="col-lg-4">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'image/thaibinh_04.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <h6 class="card-title" style="font-size: 22px;"><b>Tự động hóa nông nghiệp</b></h6>
+                    <p class="card-text">Hệ thống tự động tưới tiêu, theo dõi môi trường hiện đại, công nghệ vượt
+                        trội</p>
+                    <a href="#" class="btn btn-outline-primary rounded">Chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 100%;">
+                <img class="card-img-top" src="{% static 'image/electric.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <h6 class="card-title" style="font-size: 22px;"><b>Tự động hóa công nghiệp</b></h6>
+                    <p class="card-text">Hệ thống tự động điều khiển máy móc, vận hành quá trình sản xuất hiện đại
+                    </p>
+                    <a href="#" class="btn btn-outline-primary rounded">Chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="height: 100%;">
+                <img class="card-img-top" src="{% static 'image/solar_cell.jpg' %}" alt="Card image cap">
+                <div class="card-body">
+                    <h6 class="card-title" style="font-size: 22px;"><b>Tiết kiệm năng lượng</b></h6>
+                    <p class="card-text">Hệ thống tự động điều khiển máy móc, vận hành quá trình sản xuất hiện đại
+                    </p>
+                    <a href="#" class="btn btn-outline-primary rounded">Chi tiết</a>
+                </div>
+            </div>
         </div>
     </div>
-
-    <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="header">
-        <div data-frame="jparticleground" id="jparticleground" style="z-index: 9"></div>
-        <img class="w3-image w3-black mySlides" src=" {% static './image/banner_04.png' %}" alt="Reponsive" id="banner-img1">
-        <img class="w3-image w3-black mySlides" src="{% static './image/banner-earth6.png' %}" alt="Reponsive" id="banner-img2">
-        <div class="w3-display-middle w3-margin-top w3-center w3-margin-bottom intro" style="padding-bottom:15%;">
-            <h1 class="w3-xxxlarge w3-tag w3-opacity-off"><b>CTD</b></h1>
-            <h2 class="w3-text-white w3-hide-small w3-opacity-off" style="text-align:center; font-size: 20px;"><b>TRUNG
-                    TÂM NGHIÊN CỨU SÁNG TẠO PHÁT TRIỂN CÔNG NGHỆ<br>TRƯỜNG ĐẠI HỌC KỸ THUẬT CÔNG NGHIỆP THÁI NGUYÊN</b>
-            </h2>
+    <div class="block-heading pb-3 pt-3" id="slide-1" style="background-color: #e7f3fc;">
+        <h3 class="text-muted text-bold"> Đối tác </h3>
+    </div>
+    <div class="owl-carousel" id="slider-1" style="background-color: #e7f3fc; padding-bottom: 20px;">
+        <div class="ps-5">
+            <img src="{% static 'image/vnpt.png' %}" style="height: 100px; width: auto;">
         </div>
-        <div class="w3-display-middle w3-margin-top w3-center w3-margin-bottom intro" style="padding-bottom:15%;">
-            <h1 class="w3-text-white w3-opacity-off intro" style="text-align:center; position: relative; z-index: 0;">
-                <br><b>Tiên phong
-                    trong hệ thống
-                    IoT<br>bao
-                    gồm phần cứng, phần mềm và hệ thống nhúng.</b></h3>
+        <div class="ps-5">
+            <img src="{% static 'image/nonglam.png' %}" style="height: 100px; width: auto;">
         </div>
-    </header>
-
-    <!-- Page content -->
-    <div class="w3-content w3-padding" style="max-width:1564px">
-
-        <!-- Project Section -->
-        <div class="w3-container w3-margin-top" id="projects">
-            <h2 class="w3-border-bottom w3-border-light-grey w3-padding-32">Một số sản phẩm</h2>
+        <div class="ps-5">
+            <img src="{% static 'image/thai binh.png' %}" style="height: 100px; width: auto;">
         </div>
-        <!-- <div class="w3-container w3-padding-16 w3-border-bottom">
-            <div class="w3-row">
-                <div class="w3-quarter w3-border-right w3-padding w3-center">
-                    <img src="./image/thaibinh.jpg" alt="TB" class="w3-hover-opacity" style="width:90%; height:auto;">
-                    <p><b>Hệ thống tự động kiểm soát chất lượng nước nuôi tôm thẻ chân trắng</b></p>
-                </div>
-                <div class="w3-threequarter w3-padding">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et nemo quasi cumque inventore. Blanditiis laborum amet aspernatur rem iste repellat porro totam aliquam, adipisci, repudiandae explicabo. Aperiam ab iste nisi.</p>
-                </div>
-            </div>
+        <div class="ps-5">
+            <img src="{% static 'image/hung yen.png' %}" style="height: 100px; width: auto;">
         </div>
-        <div class="w3-container w3-padding-16 w3-border-bottom">
-            <div class="w3-row">
-                <div class="w3-quarter w3-border-right w3-padding w3-center">
-                    <img src="./image/thaibinh.jpg" alt="TB" class="w3-hover-opacity" style="width:90%; height:auto;">
-                    <p><b>Hệ thống tự động kiểm soát chất lượng nước nuôi tôm thẻ chân trắng</b></p>
-                </div>
-                <div class="w3-threequarter w3-padding">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur quod perspiciatis minima dolore. Tenetur animi recusandae itaque vitae cum cupiditate, voluptatem illum ipsa laborum, id corrupti sequi, possimus vel deserunt.</p>
-                </div>
-            </div>
-        </div>
-        <div class="w3-container w3-padding-16 w3-border-bottom">
-            <div class="w3-row">
-                <div class="w3-quarter w3-border-right w3-padding w3-center">
-                    <img src="./image/thaibinh.jpg" alt="TB" class="w3-hover-opacity" style="width:90%; height:auto;">
-                    <p><b>Hệ thống tự động kiểm soát chất lượng nước nuôi tôm thẻ chân trắng</b></p>
-                </div>
-                <div class="w3-threequarter w3-padding">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et nemo quasi cumque inventore. Blanditiis laborum amet aspernatur rem iste repellat porro totam aliquam, adipisci, repudiandae explicabo. Aperiam ab iste nisi.</p>
-                </div>
-            </div>
-        </div> -->
-        <div class="w3-row-padding">
-            <div class="w3-quarter l3 m6 w3-container w3-margin-bottom w3-center">
-                <div class="w3-card">
-                    <img src="{% static './image/thaibinh.jpg' %}" alt="TB" class="w3-hover-opacity w3-margin-top"
-                        style="width:60%; height:auto;">
-                    <div class="w3-container">
-                        <p> <b>Hệ thống tự động kiểm soát chất lượng nước nuôi tôm thẻ chân trắng</b></p>
-                        <p style="text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-                            numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block w3-hover-blue-grey">Xem thêm</button></p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter l3 m6 w3-container w3-margin-bottom w3-center">
-                <div class="w3-card">
-                    <img src="{% static './image/thaibinh.jpg' %}" alt="TB" class="w3-hover-opacity w3-margin-top"
-                        style="width:60%; height:auto;">
-                    <div class="w3-container">
-                        <p><b>Hệ thống tự động kiểm soát chất lượng nước nuôi tôm thẻ chân trắng</b></p>
-                        <p style="text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-                            numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block w3-hover-blue-grey">Xem thêm</button></p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter l3 m6 w3-container w3-margin-bottom w3-center">
-                <div class="w3-card">
-                    <img src="{% static './image/thaibinh.jpg' %}" alt="TB" class="w3-hover-opacity w3-margin-top"
-                        style="width:60%; height:auto;">
-                    <div class="w3-container">
-                        <p> <b>Hệ thống tự động kiểm soát chất lượng nước nuôi tôm thẻ chân trắng</b></p>
-                        <p style="text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-                            numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block w3-hover-blue-grey">Xem thêm</button></p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-quarter l3 m6 w3-container w3-margin-bottom w3-center">
-                <div class="w3-card">
-                    <img src="{% static './image/thaibinh.jpg' %}" alt="TB" class="w3-hover-opacity w3-margin-top"
-                        style="width:60%; height:auto;">
-                    <div class="w3-container">
-                        <p> <b>Hệ thống tự động kiểm soát chất lượng nước nuôi tôm thẻ chân trắng</b></p>
-                        <p style="text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-                            numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block w3-hover-blue-grey">Xem thêm</button></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <div class="w3-container w3-padding-32 w3-margin-top" id="about">
-            <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Giới thiệu về chúng tôi</h2>
-            <h4>Đội ngũ thiết kế công nghiệp, bao gồm các kĩ sư hàng đầu của trường Đại học Kỹ Thuật Công Nghiệp
-                sẽ sát cánh cùng bạn, dù là công ty khởi nghiệp hay tập đoàn lớn, để biến những ý tưởng trên
-                giấy thành sản phẩm IoT có thể bán trên thị trường. Chúng tôi cung cấp giải pháp trọn gói, thiết kế
-                riêng, phù hợp với yêu cầu của từng khách hàng, từ thiết kế hệ thống IoT, hệ thống điện đến đào tạo.
-            </h4>
-        </div>
-
-        <div class="w3-row-padding w3-grayscale">
-            <button class="w3-button w3-display-left w3-opacity-max" onclick="plusDivs(-1)">&#10094;</button>
-            <button class="w3-button w3-display-right w3-opacity-max " onclick="plusDivs(+1)">&#10095;</button>
-            <div class="w3-col l3 m6 w3-margin-bottom myProfileSlides">
-                <div class="w3-card">
-                    <img src="https://i.stack.imgur.com/l60Hf.png" alt="Dan" style="width:100%">
-                    <div class="w3-container">
-                        <h3>&nbsp;Đào Huy Du 1</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block" onclick="connectZalo()"><i
-                                    class="fa fa-envelope"></i>&nbsp;Contact</button></p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom myProfileSlides">
-                <div class="w3-card"><img src="https://i.stack.imgur.com/l60Hf.png" alt="Dan" style="width:100%">
-                    <div class="w3-container">
-                        <h3>&nbsp;Đào Huy Du 2</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block" onclick="connectZalo()"><i
-                                    class="fa fa-envelope"></i>&nbsp;Contact</button></p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom myProfileSlides">
-                <div class="w3-card"><img src="https://i.stack.imgur.com/l60Hf.png" alt="Dan" style="width:100%">
-                    <div class="w3-container">
-                        <h3>&nbsp;Đào Huy Du 3</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block" onclick="connectZalo()"><i
-                                    class="fa fa-envelope"></i>&nbsp;Contact</button></p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom myProfileSlides">
-                <div class="w3-card"><img src="https://i.stack.imgur.com/l60Hf.png" alt="Dan" style="width:100%">
-                    <div class="w3-container">
-                        <h3>&nbsp;Đào Huy Du 4</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block" onclick="connectZalo()"><i
-                                    class="fa fa-envelope"></i>&nbsp;Contact</button></p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom myProfileSlides">
-                <div class="w3-card"><img src="https://i.stack.imgur.com/l60Hf.png" alt="Dan" style="width:100%">
-                    <div class="w3-container">
-                        <h3>&nbsp;Đào Huy Du 5</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block" onclick="connectZalo()"><i
-                                    class="fa fa-envelope"></i>&nbsp;Contact</button></p>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-col l3 m6 w3-margin-bottom myProfileSlides">
-                <div class="w3-card"><img src="https://i.stack.imgur.com/l60Hf.png" alt="Dan" style="width:100%">
-                    <div class="w3-container">
-                        <h3>&nbsp;Đào Huy Du 6</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam numquam similique
-                            aspernatur!
-                            Dicta culpa quia tempore repellendus vero eveniet, veritatis iure molestias exercitationem
-                            animi
-                            earum quisquam ipsa quidem totam consectetur?</p>
-                        <p><button class="w3-button w3-light-grey w3-block" onclick="connectZalo()"><i
-                                    class="fa fa-envelope"></i>&nbsp;Contact</button></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact Section -->
-        <div class="w3-container w3-padding-32 w3-margin-top" id="contact">
-            <h2 class="w3-border-bottom w3-border-light-grey w3-padding-10">Liên hệ</h2>
-            <p style="font-size:20px">Hãy chia sẻ ý tưởng của bạn. Chúng tôi sẵn sàng lắng nghe và cùng bạn
-                thảo luận.</p>
-            <form action="/action_page.php" target="_blank">
-                <input class="w3-input w3-border" type="text" placeholder="Tên*" required name="Name">
-                <input class="w3-input w3-section w3-border" type="text" placeholder="Email *" required name="Email">
-                <input class="w3-input w3-section w3-border" type="text" placeholder="Công ty *" required
-                    name="company">
-                <input class="w3-input w3-section w3-border" type="text" placeholder="Điện thoại *" required
-                    name="Phone">
-                <textarea class="w3-input w3-section w3-border" name="message" placeholder="Nội dung *" rows="5"
-                    maxlength="1000" required="" style="height: 100px;"></textarea>
-                <button class="w3-button w3-black w3-section" type="submit">
-                    <i class="fa fa-paper-plane"></i> SEND MESSAGE
-                </button>
-            </form>
+        <div class="ps-5">
+            <img src="{% static 'image/apatit.jpeg' %}" style="height: 100px; width: auto;">
         </div>
     </div>
-
-
-    <!-- Footer -->
-    <footer class="w3-center w3-black w3-padding-16">
-        <div class="w3-row-padding">
-            <div class="w3-half" style="text-align: left;" id="text-contact">
-                <p>Contact: Đào Huy Du </p>
-                <p>Phone: <a href="tel://0912347222">0912347222</a></p>
-                <p>Email: <a href="mailto:daohuydu@tnut.edu.vn">daohuydu@tnut.edu.vn</a> </p>
+    <div class="block-info row row-cols-lg-2 pt-5 ps-4">
+        <div class="col-lg-7">
+            <div class="container" style="padding-left:0px !important;">
+                <h3 class="text-muted text-bold"> Tin tức mới </h3>
             </div>
-            <div class="w3-half" style="text-align: right;" id="icon-contact">
-                <a class="w3-bar-item w3-button" title="Facebook"><i class="fab fa-facebook-f"></i>
-                </a>
-                <a class="w3-bar-item w3-button" href="mailto:daohuydu@tnut.edu.vn" title="Email"><i
-                        class="far fa-envelope"></i>
-                </a>
-                <a class="w3-bar-item w3-button" title="Message"> <i class="far fa-comment-dots"></i>
-                </a>
-                <a class="w3-bar-item w3-button" href="{% url 'adminsite' %}"> <i class="fas fa-users-cog"></i>
-                </a>
+            <div class="card">
+                <div class="card-body">
+                    <a href="#" class="display-5 card-title" style="font-size: 22px !important;">Khỏa sát Hưng Yên
+                        2021</a>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab perspiciatis
+                        aperiam facilis itaque nisi harum, sequi, nobis, at ex consectetur natus reiciendis ut
+                        mollitia quia ipsa dolores officiis vel atque?</p>
+                    <button class="btn btn-outline-primary rounded">Xem tất cả</button>
+                </div>
             </div>
         </div>
-        <p>Copyright © 2021 CTD</p>
-    </footer>
-    <script type="text/javascript" src="{% static 'JS/jquery-3.6.0.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'JS/jquery.particleground.js' %}"></script>
-    <script type="text/javascript" src="{% static 'JS/jquery.particleground.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'JS/jparticleground.js' %}"></script>
-    <script type="text/javascript" src="{% static 'script/script.js' %}"></script>
-</body>
+        <div class="col-lg-5">
+            <div class="container">
+                <h3 class="text-muted text-bold"> Dự án mới </h3>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row row-cols-lg-2">
+                        <div class="col-lg-5 col-sm-6">
+                            <img src="{% static 'image/solar_cell.jpg' %}" style="height: 100px; width: auto;">
+                        </div>
+                        <div class="col-sm-6 col-lg-7">
+                            <a href="#" class="display-5 card-title" style="font-size: 22px !important;">Pin mặt trời</a>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab perspiciatis
+                                aperiam facilis itaque nisi harum, sequi, nobis, at ex consectetur natus reiciendis ut
+                                mollitia quia ipsa dolores officiis vel atque?</p>
+                            <button class="btn btn-outline-primary rounded">Xem tất cả</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="my-4">
+    <div class="block-heading pb-3 mt-5">
+        <h3 class="text-muted text-bold">Lĩnh vực </h3>
+    </div>
+    <div class="owl-carousel ps-3" id="slider-2">
+        <div>
+            <div class="card-body">
+                <div class="row row-cols-2">
+                    <div class="col-5">
+                        <img class="card-img-top" src="{% static 'image/electric.jpg' %}" alt="Card image cap">
+                    </div>
+                    <div class="col-7">
+                        <h5 class="card-title">Lĩnh vực 1</h5>
+                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+                            molestias
+                            incidunt vel nisi
+                            minima temporibus iste commodi ut error, mollitia officia dolore quisquam alias nam
+                            nobis
+                            accusamus
+                            necessitatibus. Aspernatur, veniam!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card-body">
+                <div class="row row-cols-2">
+                    <div class="col-5">
+                        <img class="card-img-top" src="{% static 'image/electric.jpg' %}" alt="Card image cap">
+                    </div>
+                    <div class="col-7">
+                        <h5 class="card-title">Lĩnh vực 2</h5>
+                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+                            molestias
+                            incidunt vel nisi
+                            minima temporibus iste commodi ut error, mollitia officia dolore quisquam alias nam
+                            nobis
+                            accusamus
+                            necessitatibus. Aspernatur, veniam!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="card-body">
+                <div class="row row-cols-2">
+                    <div class="col-5">
+                        <img class="card-img-top" src="{% static 'image/electric.jpg' %}" alt="Card image cap">
+                    </div>
+                    <div class="col-7">
+                        <h5 class="card-title">Lĩnh vực 3</h5>
+                        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
+                            molestias
+                            incidunt vel nisi
+                            minima temporibus iste commodi ut error, mollitia officia dolore quisquam alias nam
+                            nobis
+                            accusamus
+                            necessitatibus. Aspernatur, veniam!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block-heading pb-3 mt-5">
+        <h3 class="text-muted text-bold"> Liên hệ </h3>
+    </div>
+    <hr class="my-4">
+    <form class="ms-5 col-lg-7">
+        <div class="form-group row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Tên</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Tên*">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Công ty</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Công ty*">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Email*">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Số điện thoại</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Số điện thoại*">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-outline-primary rounded"> <i class="fa fa-paper-plane"></i>
+                    SEND
+                    MESSAGE</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
 
-</html>
+{% block message %}
+    <div class="chat-widget">
+            <div class="chat-widget--bubble">
+                <h1 class="chat-widget--header"></h1>
+                <p class="chat-widget--text">Chào bạn! Mình có thể giúp gì cho bạn?</p>
+                <button>Chat với chúng tôi</button>
+            </div>
+            <a class="chat-widget--button">
+                <svg viewBox="0 0 41 36" class="chat-widget--icon">
+                    <path
+                        d="M34.7 5.2C38.6 8.6 40.7 13.2 40.7 18 40.7 22.8 38.6 27.4 34.7 30.8 31 34.2 26 36 20.7 36 19.1 36 17.5 35.8 16 35.5 15.2 35.3 14.7 34.5 14.9 33.7 15.1 32.9 15.8 32.4 16.6 32.6 17.9 32.9 19.3 33 20.7 33 30.1 33 37.7 26.3 37.7 18 37.7 9.7 30.1 3 20.7 3 11.3 3 3.6 9.7 3.6 18 3.6 21.4 4.9 24.7 7.3 27.4 7.7 27.8 7.8 28.4 7.6 28.9 7.2 30 6.7 30.9 6 31.8 7.2 31.7 8.6 31.3 9.8 30.6 10.5 30.1 11.5 30.4 11.9 31.1 12.3 31.8 12.1 32.7 11.4 33.1 8.3 35 5 34.9 3.3 34.6 2.5 34.5 1.8 33.9 1.7 33.1 1.5 32.3 1.8 31.4 2.5 31 3.4 30.4 4 29.6 4.5 28.6 2 25.6 0.7 21.8 0.7 18 0.7 13.2 2.8 8.6 6.6 5.2 10.4 1.8 15.4 0 20.7 0 26 0 31 1.8 34.7 5.2ZM20.7 20C19.6 20 18.7 19.1 18.7 18 18.7 16.9 19.6 16 20.7 16 21.7 16 22.6 16.9 22.6 18 22.6 19.1 21.7 20 20.7 20ZM26.7 20C25.6 20 24.8 19.1 24.8 18 24.8 16.9 25.6 16 26.7 16 27.8 16 28.6 16.9 28.6 18 28.6 19.1 27.8 20 26.7 20ZM14.6 20C13.6 20 12.7 19.1 12.7 18 12.7 16.9 13.6 16 14.6 16 15.7 16 16.6 16.9 16.6 18 16.6 19.1 15.7 20 14.6 20Z">
+                    </path>
+                </svg>
+            </a>
+        </div>
+           <script type="text/javascript" src="{% static 'script/chat.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<head>
+     {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" type="text/css" href="{% static 'JS/bootstrap/css/bootstrap.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'JS/OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'JS/OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/v4-shims.js"></script>
+    {% block style %}{% endblock %}
+    <title>CTD</title>
+</head>
+
+<body>
+    <header style="width:100%">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand p-lg-3 " href="#"
+                style="margin-left:20px !important;color:rgb(63, 42, 42);"><b>CTD</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-row-reverse p-2" id="navbarSupportedContent"
+                style="margin-right: 20px;">
+                <ul class="navbar-nav">
+                  <li class="nav-item active pe-lg-4">
+                        <a class="nav-link" href="{% url 'Home' %}"><b>Trang chủ</b></a>
+                    </li>
+                    <li class="nav-item active pe-lg-4">
+                        <a class="nav-link" href="#"><b>Dự án</b></a>
+                    </li>
+                    <li class="nav-item pe-lg-4 ps-lg-4" style="padding-left:32px;">
+                        <a class="nav-link" href="{% url 'edu' %}"><b>Đào tạo</b></a>
+                    </li>
+                    <li class="nav-item pe-lg-4" style="padding-left:32px;">
+                        <a class="nav-link" href="{% url 'new' %}"><b>Tin tức</b></a>
+                    </li>
+                    <li class="nav-item pe-lg-4" style="padding-left:32px;">
+                        <a class="nav-link"><b>Hỗ trợ</b></a>
+                    </li>
+                    <li class="nav-item pe-lg-4" style="padding-left:32px;">
+                        <a class="nav-link"  href="{% url 'about' %}"><b>Liên hệ</b></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+         {% block header %}{% endblock %} 
+    </header>
+    <section class="container-fluid p-0 content_page mt-4">
+        {% block content %}{% endblock %} 
+    </section>
+
+    <footer class="blog-footer mt-3">
+        <div class="row row-cols-lg-2">
+            <div class="col-lg-6 ps-5" style="text-align: left;">
+                <p class="text-black-footer">Contact: Đào Huy Du </p>
+                <p class="text-black-footer">Phone: <a href="tel://0912347222"
+                        style="text-decoration: none; color:black">0912347222</a></p>
+                <p class="text-black-footer">Email: <a href="mailto:daohuydu@tnut.edu.vn"
+                        style="text-decoration: none; color:black">daohuydu@tnut.edu.vn</a> </p>
+            </div>
+            <div class="col-lg-6 text-black-50 float-sm-start float-lg-end float-end">
+                <a class="btn btn-lg float-lg-end float-sm-none" href="{% url 'adminsite' %}"> <i
+                        class="fas fa-users-cog"></i>
+                </a>
+                <a class="btn btn-lg float-lg-end float-sm-none" title="Message"> <i class="far fa-comment-dots"></i>
+                </a>
+                <a class="btn btn-lg float-lg-end float-sm-none" title="Facebook"><i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="btn btn-lg float-lg-end float-sm-none" href="mailto:daohuydu@tnut.edu.vn" title="Email"><i
+                        class="far fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <p class="pt-5">Copyright © 2021 CTD</p>
+    </footer>
+    {% block message %}{% endblock %} 
+     <script type="text/javascript" src="{% static 'JS/jquery-3.6.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'JS/bootstrap/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'JS/bootstrap/js/bootstrap.bundle.js' %}"></script>
+    <script type="text/javascript" src="{% static 'JS/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.min.js' %}">
+    </script>
+    <script type="text/javascript" src="{% static 'script/home.js' %}"></script>
+
+    {% block script %}{% endblock %}
+</body>
+
+</html>

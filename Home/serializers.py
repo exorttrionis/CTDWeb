@@ -2,23 +2,29 @@ import rest_framework
 from rest_framework import serializers
 from rest_framework import viewsets
 from rest_framework import permissions
-from Home.models import (
-    Task,
-    TaskFile,
-    UserExtend,
-)
+from Home.models import *
+
+
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ["author", "title", "content", "deadline", "id_task",
-                  "id_check", "id_title", "id_deadline", "task_status", "id_content"]
+        fields = ["id", "task_title", "task_content", "priority", "deadline", "taskstatus",
+                  "user_create","created_at"]
 
-class TaskFileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TaskFile
-        fields = ["task", "url"]
 
-class UserExtendSerializer(serializers.ModelSerializer):
+class FilelistSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserExtend
-        fields = ["user", "dob", "username", "avatar"]
+        model = Filelist
+        fields = ["id", "task", "file_path", "file_type"]
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ctdprofile
+        fields = ["avatar", "user_id"]
+
+
+class AuthUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AuthUser
+        fields = ['username', 'id', 'first_name','last_name']

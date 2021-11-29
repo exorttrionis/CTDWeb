@@ -8,21 +8,13 @@
 from django.db import models
 
 
-class Task(models.Model):
-    author = models.CharField(max_length=255, db_collation='utf8_general_ci', blank=True, null=True)
-    title = models.TextField(blank=True, null=True)
-    content = models.TextField(blank=True, null=True)
-    deadline = models.DateTimeField(blank=True, null=True)
-    id_task = models.CharField(max_length=255, db_collation='utf8_general_ci', blank=True, null=True)
-    id_check = models.CharField(max_length=255, db_collation='utf8_general_ci', blank=True, null=True)
-    id_title = models.CharField(max_length=255, db_collation='utf8_general_ci', blank=True, null=True)
-    id_deadline = models.CharField(max_length=255, db_collation='utf8_general_ci', blank=True, null=True)
-    task_status = models.IntegerField(blank=True, null=True)
-    id_content = models.CharField(max_length=255, db_collation='utf8_general_ci', blank=True, null=True)
+class Ctdprofile(models.Model):
+    avatar = models.TextField(blank=True, null=True)
+    user = models.ForeignKey('AuthUser', models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'Task'
+        db_table = 'CTDProfile'
 
 
 class AuthGroup(models.Model):
@@ -139,21 +131,25 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
-class TaskFile(models.Model):
-    task = models.ForeignKey(Task, models.DO_NOTHING, blank=True, null=True)
-    url = models.TextField(blank=True, null=True)
+class Filelist(models.Model):
+    task = models.ForeignKey('Task', models.DO_NOTHING, blank=True, null=True)
+    file_path = models.TextField(blank=True, null=True)
+    file_type = models.CharField(max_length=255, db_collation='utf8_general_ci', blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'task_file'
+        db_table = 'fileList'
 
 
-class UserExtend(models.Model):
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
-    dob = models.DateTimeField(blank=True, null=True)
-    username = models.CharField(max_length=255, db_collation='utf8_general_ci', blank=True, null=True)
-    avatar = models.TextField(blank=True, null=True)
+class Task(models.Model):
+    task_title = models.CharField(max_length=255, db_collation='utf8_general_ci', blank=True, null=True)
+    task_content = models.TextField(blank=True, null=True)
+    priority = models.IntegerField(blank=True, null=True)
+    deadline = models.DateTimeField(blank=True, null=True)
+    taskstatus = models.IntegerField(db_column='taskStatus', blank=True, null=True)  # Field name made lowercase.
+    user_create = models.ForeignKey(AuthUser, models.DO_NOTHING, blank=True, null=True)
+    created_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'user_extend'
+        db_table = 'task'
