@@ -137,7 +137,6 @@ function AssignDownloadEvent() {
             },
             success: function (response) {
                 if (response != 'false') {
-                    console.log(response);
                     var a = document.createElement("a");
                     a.href = "data:" + fileType + ";base64," + response;
                     console.log("data:" + fileType + "base64,")
@@ -194,6 +193,27 @@ function AssignClickEvent() {
     })
 }
 
+function AssignRemoveFile() {
+    $('.btn-remove-file').on('click', function () {
+        let fileID = $(this).next().text().replace(/\s/g, '');
+        let fileTag = $(this).closest('.d-flex');
+        $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:8000/remove-file/',
+            data: {
+                'id': fileID,
+            },
+            success: function (response) {
+                if (response == 'check') {
+                    console.log(fileTag);
+                    fileTag.remove();
+                }
+
+            }
+        })
+    })
+}
+
 function AssignEvent() {
     $('.btn-remove').on('click', function (event) {
         event.stopPropagation();
@@ -222,6 +242,70 @@ function AssignEvent() {
                 GetAllTaskList();
             }
         })
+    })
+    $('.btn-edit').on('click', function (event) {
+        event.stopPropagation();
+        let taskID = $(this).closest('tr').attr('id').slice(0, -3);
+        let listFileName = [];
+        let listTagFile = '';
+        let listFileID = [];
+        let taskTitle, taskContent, taskDeadline;
+        for (let task of listTask) {
+            if (taskID == task.id) {
+                taskTitle = task.task_title;
+                taskContent = task.task_content;
+                taskDeadline = task.deadline;
+            }
+        }
+        $('#edit-task-title').val(taskTitle);
+        $('#edit-task-content').text(taskContent);
+        $('#edit-dl').val(new Date(taskDeadline).toJSON().slice(0, 19));
+        for (let file of listFile) {
+            if (taskID == file.task) {
+                listFileName.push(file.file_path.replace(FILEPATH, ''));
+                listFileID.push(file.id);
+            }
+        }
+        for (let id = 0; id < listFileName.length; id++) {
+            listTagFile = listTagFile + `<li class = "list-group-item d-flex justify-content-between align-items-center" >
+                 ${listFileName[id]} <button class="btn btn-remove-file badge bg-primary dw-btn"> <i class = "far fa-times-circle"> </i></button>
+                 <p style ='display:none;' class='type'>${listFileID[id]}</p></li>
+            `
+        }
+        $('#edit-file-list').html('');
+        $('#edit-file-list').append(listTagFile);
+        AssignRemoveFile();
+        $('#edit-task').modal('show');
+        $('#save-task').on('click', function () {
+            let formData = new FormData();
+            let taskTitle = $('#edit-task-title').val();
+            let taskContent = $('#edit-task-content').val();
+            let taskDeadline = moment($('#edit-dl').val()).format('YYYY-MM-DD HH:MM:SS');
+            formData.append('id', taskID);
+            formData.append('title', taskTitle);
+            formData.append('content', taskContent);
+            formData.append('deadline', taskDeadline);
+            for (data of dataList) {
+                formData.append('file', data);
+            }
+            $.ajax({
+                type: 'POST',
+                url: "http://127.0.0.1:8000/edit-task/",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: function (response) {
+                    if (response == 'done') {
+                          $('#edit-task').modal('hide');
+                        GetAllTaskList();
+                    } else {
+                        alert('Có lỗi xảy ra rồi!')
+                    }
+                }
+            })
+        })
+
     })
 }
 

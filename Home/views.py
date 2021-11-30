@@ -165,3 +165,44 @@ class FinishTask(View):
         task.taskstatus = 1
         task.save()
         return JsonResponse('check', status=200, safe=False)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class RemoveFile(View):
+    def post(self, request):
+        file_id = request.POST.get('id')
+        file = Filelist.objects.get(id=file_id)
+        try:
+            os.remove(file.file_path)
+        except Exception:
+            print(Exception)
+        except OSError as e:
+            print(e)
+        file.delete()
+        return JsonResponse('check', status=200, safe=False)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class EditTask(View):
+    def post(self, request):
+        id_task = request.POST.get('id')
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        deadline = request.POST.get('deadline') if request.POST.get(
+            'deadline') != 'Invalid date' else None
+        for file in request.FILES.getlist('file'):
+            fs = FileSystemStorage(
+                location='/home/thomasvu/Documents/IOTWeb/upload/')
+            filename = fs.save(file.name, file)
+            uploaded_file_url = fs.url(filename)  # gets the url
+        task = Task.objects.get(id=id_task)
+        task.task_title = title
+        task.task_content = content
+        task.deadline = deadline
+        task.save()
+        if len(request.FILES.getlist('file')) != 0:
+            Filelist.objects.bulk_create([
+                Filelist(file_path='/home/thomasvu/Documents/IOTWeb/upload/' +
+                         file.name, task_id=id_task, file_type=filetype.guess('/home/thomasvu/Documents/IOTWeb/upload/' + file.name).mime) for file in request.FILES.getlist('file')
+            ])
+        return JsonResponse('done', status=200, safe=False)

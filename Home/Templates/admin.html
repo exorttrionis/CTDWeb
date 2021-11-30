@@ -62,12 +62,52 @@
                 <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal"></button>
             </div>
             <div class="modal-body" id="show-task-body">
-                <p  class="w-100" id="show-task-content" placeholder="Nội dung" style="min-height:150px;"></p>
+                <p class="w-100" id="show-task-content" placeholder="Nội dung" style="min-height:150px;"></p>
                 <p id="dl"></p>
                 <div id='list-file'></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="edit-task" tabindex="-1" role="dialog" aria-labelledby="edit-task-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">Chỉnh sửa nhiệm vụ</h5>
+                <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="edit-task-title">Tiêu đề</label>
+                        <input type="text" class="form-control" id="edit-task-title" aria-describedby="Tiêu đề"
+                            placeholder="Tiêu đề">
+                    </div>
+                    <div class="form-group pt-2">
+                        <label for="edit-task-content">Nội dung</label>
+                        <textarea class="form-control" id="edit-task-content" placeholder="Nội dung"
+                            style="min-height:150px;"></textarea>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="datetime-local" id="edit-dl">
+                    </div>
+                    <div class="form-group mt-2">
+                        <div class="file-upload">
+                            <input class="file-upload__input" type="file" name="myFile[]" id="edit-myFile" multiple>
+                            <button class="file-upload__button" type="button">Upload file(s)</button>
+                            <span class="file-upload__label"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            <div id="edit-file-list"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="save-task">Save</button>
             </div>
         </div>
     </div>

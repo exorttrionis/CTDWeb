@@ -6,6 +6,8 @@ from django.contrib.auth import views as auth_views
 import debug_toolbar
 from django.urls import include, path
 urlpatterns = [
+    path('edit-task/', EditTask.as_view()),
+    path('remove-file/', RemoveFile.as_view()),
     path('finish-task/', FinishTask.as_view()),
     path('remove-task/', DeleteTask.as_view()),
     path('get-file/', DownloadFile.as_view()),
