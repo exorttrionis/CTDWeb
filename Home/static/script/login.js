@@ -5,7 +5,7 @@ $('#btn').on("click", function (event) {
     var csrftoken = $("input[name=csrfmiddlewaretoken]").val();
     $.ajax({
         type: "POST",
-        url: "http://127.0.0.1:8000/log/",
+        url: 'http://' + window.location.host + '/log/',
         data: {
             csrfmiddlewaretoken: csrftoken,
             'username': username,
@@ -13,7 +13,7 @@ $('#btn').on("click", function (event) {
         },
         success: function (response) {
             if (response == "done") {
-                window.location.href = "http://127.0.0.1:8000/adminsite#";
+                window.location.href = 'http://' + window.location.host + '/adminsite#';
             } else {
                 var warning = document.getElementById("warning");
                 warning.removeAttribute("hidden");
@@ -31,7 +31,7 @@ $(document).keypress(function (event) {
         var csrftoken = $("input[name=csrfmiddlewaretoken]").val();
         $.ajax({
             type: "POST",
-            url: "http://127.0.0.1:8000/log/",
+            url: 'http://' + window.location.host + '/log/',
             data: {
                 csrfmiddlewaretoken: csrftoken,
                 'username': username,
@@ -39,7 +39,7 @@ $(document).keypress(function (event) {
             },
             success: function (response) {
                 if (response == "done") {
-                    window.location.href = "http://127.0.0.1:8000/adminsite#";
+                    window.location.href = 'http://' + window.location.host + '/adminsite#';
                 } else {
                     var warning = document.getElementById("warning");
                     warning.removeAttribute("hidden");
