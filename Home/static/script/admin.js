@@ -48,7 +48,7 @@ $('#add-task').on('click', function () {
     }
     $.ajax({
         type: "POST",
-        url: "http://127.0.0.1:8000/test-upload/",
+        url: "http://" + window.location.host + "/test-upload/",
         cache: false,
         contentType: false,
         processData: false,
@@ -110,7 +110,7 @@ function RenderAllTask() {
 function GetAllTaskList() {
     $.ajax({
         type: 'GET',
-        url: 'http://127.0.0.1:8000/get-all-task/',
+        url: 'http://' + window.location.host + '/get-all-task/',
         contentType: 'application/json',
         success: function (response) {
             console.log(response);
@@ -128,7 +128,7 @@ function AssignDownloadEvent() {
         let filePath = FILEPATH + fileName;
         let fileType = $(this).next().text().replace(/\s/g, '');
         $.ajax({
-            url: 'http://127.0.0.1:8000/get-file/',
+            url: 'http://' + window.location.host + +'/get-file/',
             type: 'POST',
             data: {
                 'path': filePath,
@@ -199,7 +199,7 @@ function AssignRemoveFile() {
         let fileTag = $(this).closest('.d-flex');
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1:8000/remove-file/',
+            url: 'http://' + window.location.host + +'/remove-file/',
             data: {
                 'id': fileID,
             },
@@ -220,7 +220,7 @@ function AssignEvent() {
         let taskID = $(this).closest('tr').attr('id').slice(0, -3);
         $.ajax({
             type: 'POST',
-            url: "http://127.0.0.1:8000/remove-task/",
+            url: 'http://' + window.location.host + +'/remove-task/',
             data: {
                 'taskID': taskID
             },
@@ -234,7 +234,7 @@ function AssignEvent() {
         let taskID = $(this).closest('tr').attr('id').slice(0, -3);
         $.ajax({
             type: 'POST',
-            url: "http://127.0.0.1:8000/finish-task/",
+            url: 'http://' + window.location.host + +'/finish-task/',
             data: {
                 'taskID': taskID
             },
@@ -290,14 +290,14 @@ function AssignEvent() {
             }
             $.ajax({
                 type: 'POST',
-                url: "http://127.0.0.1:8000/edit-task/",
+                url: 'http://' + window.location.host + '/edit-task/',
                 cache: false,
                 contentType: false,
                 processData: false,
                 data: formData,
                 success: function (response) {
                     if (response == 'done') {
-                          $('#edit-task').modal('hide');
+                        $('#edit-task').modal('hide');
                         GetAllTaskList();
                     } else {
                         alert('Có lỗi xảy ra rồi!')
